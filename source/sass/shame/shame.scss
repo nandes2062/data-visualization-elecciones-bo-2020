@@ -1,0 +1,6 @@
+div#hubspot-messages-iframe-container.widget-align-right{
+  display: none !important;
+  @include from (sm) {
+    display: initial!important;
+  }
+}

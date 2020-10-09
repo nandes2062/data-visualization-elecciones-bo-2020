@@ -1,0 +1,10 @@
+.md\:-right-8 {
+  @include from(md) {
+    right: -2rem;
+  }
+}
+.md\:-left-8 {
+  @include from(md) {
+    left: -2rem;
+  }
+}

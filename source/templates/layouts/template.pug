@@ -1,0 +1,29 @@
+block config
+  include config
+doctype html
+html(lang="es" prefix="og: http://ogp.me/ns#")
+  head
+    meta(charset="utf-8")
+    meta(name="viewport" content="initial-scale=1.0, width=device-width")
+    if (currentPage.slice(0,1).toUpperCase() + currentPage.slice(1) == 'Inicio')
+      title= siteName + ' ' + slogan
+      meta(property="og:title" content=currentPage.slice(0,1).toUpperCase() + currentPage.slice(1) + " | " + siteName)
+    else
+      title= currentPage.slice(0,1).toUpperCase() + currentPage.slice(1) + " | " + siteName + ' ' + slogan
+      meta(property="og:title" content=currentPage.slice(0,1).toUpperCase() + currentPage.slice(1) + " | " + siteName)
+    meta(name='designer', content='Fernando Javier Averanga Aruquipa / nandes.ingsistemas@gmail.com')
+    meta(name="description" content=description)
+    meta(property="og:description" content=description)  
+    meta(name='author', content='')
+    meta(name='keywords', content='')
+    link(rel="stylesheet" href= path_media + "css/styles.css?v=" + siteVersion)
+  body(class="bg-gray-100 font-family-karla flex")
+    include sidebar.html
+    div(class="w-full flex flex-col h-screen overflow-y-hidden")
+      include header.html
+      .w-full
+        main
+          block main
+    rex-footer
+    script(src= path_media + "js/modernizr.js")
+    script(src= path_media + "js/script.js?v=" + siteVersion)

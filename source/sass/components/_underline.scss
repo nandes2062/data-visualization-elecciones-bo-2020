@@ -1,0 +1,20 @@
+.underline-active {
+  position: relative;
+}
+.underline-active:after {    
+  background: none repeat scroll 0 0 transparent;
+  bottom: .2rem;
+  content: "";
+  display: block;
+  height: 2px;
+  left: 50%;
+  position: absolute;
+  background: var(--primary-color);
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  width: 0;
+  transform: translate(-50%);
+}
+.underline-active:hover:after { 
+  width: 80%; 
+  will-change: width;
+}

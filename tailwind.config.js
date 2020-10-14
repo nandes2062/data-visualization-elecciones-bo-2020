@@ -44,5 +44,11 @@ module.exports = {
   },
   plugins: [
     // Some useful comment
-  ]
+  ],
+  future: {
+    removeDeprecatedGapUtilities: true,
+    purgeLayersByDefault: true,
+    defaultLineHeights: true,
+    standardFontWeights: true
+  }
 }

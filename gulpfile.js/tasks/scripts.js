@@ -60,11 +60,11 @@ function bundle() {
             });
         })
         .pipe(source('script.js'))
-        // .pipe(buffer())
+        .pipe(buffer())
         // .pipe(sourcemaps.init({loadMaps: true}))
-        // .pipe(process.env.APP_ENV === 'production' ? uglify() : through())
-        // .pipe(through((log(colors.white('JS files generated:')))))
-        // .pipe(size({title: 'Scripts:', showFiles: true}))
+        .pipe(process.env.APP_ENV === 'production' ? uglify() : through())
+        .pipe(through((log(colors.white('JS files generated:')))))
+        .pipe(size({title: 'Scripts:', showFiles: true}))
         // .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest(config.scripts.destinationFolder))
         .pipe(browserSync.stream());

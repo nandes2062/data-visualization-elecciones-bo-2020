@@ -14,6 +14,7 @@ const size = require('gulp-size');
 const plumber = require('gulp-plumber');
 const notifier = require('node-notifier');
 const tailwindcss = require('tailwindcss');
+const purgecss = require('gulp-purgecss'); //To Remove Unsued CSS
 
 // load config
 const config = require('../config');

@@ -27,6 +27,7 @@ const config = {
     'clean': {
         'cleanableTasks': [
             'images',
+            'responsive',
             'templates',
             'scripts',
             'styles',
@@ -58,18 +59,18 @@ const config = {
 
     // Images
     'images': {
-        'sourceFiles': ['./source/images/**/*.{jpg,png,gif,svg}'],
+        'sourceFiles': ['./source/images/*.{jpg,png,gif,svg}'],
         'destinationFolder': './html/resources/images',
-        'watchFiles': ['./source/images/**/*.{jpg,png,gif,svg}'],
+        'watchFiles': ['./source/images/*.{jpg,png,gif,svg}'],
         'cleanFiles': ['./html/resources/images/*.{jpg,png,gif,svg}']
     },
 
     // Responsive images
     'responsive': {
-        'sourceFiles': ['./source/responsive/**/*.{jpg,jpeg,png,gif}'],
+        'sourceFiles': ['./source/images/*/*.{jpg,jpeg,png,gif}'],
         'destinationFolder': './html/resources/images',
-        'watchFiles': ['./source/responsive/**/*.{jpg,jpeg,png,gif}'],
-        'cleanFiles': ['./html/resources/images/**/*.{jpg,jpeg,png,gif}']
+        'watchFiles': ['./source/images/*/*.{jpg,jpeg,png,gif}'],
+        'cleanFiles': ['./html/resources/images/*']
     },
 
     // Favicon
@@ -104,28 +105,20 @@ const config = {
 
     // Templates
     'templates': {
-        'sourceFolder': './source/templates',
-        'sourceFiles': ['./source/templates/{*,components/*,stylesguide/*}.pug'],
+        'sourceFolder': './source/html',
+        'sourceFiles': ['./source/html/pages/*.pug'],
         'destinationFolder': './html',
-        'watchFiles': ['./source/templates/**/*.{pug,json,html}'],
+        'watchFiles': ['./source/html/**/*.{pug,json,html}'],
         'cleanFiles': ['./html/*.html']
     },
 
     // Scripts
     'scripts': {
-        'sourceFiles': ['./source/js/script.js'],
+        'sourceFiles': ['./source/js/main.js'],
         'destinationFolder': './html/resources/js',
         'watchFiles': ['./source/js/**/*.js'],
         'cleanFiles': ['./html/resources/js/*.{js,map}']
     },
-
-    // TailwindCSS
-    // 'tailwind': {
-    //     'sourceFiles': ['./source/sass/styles.scss'],
-    //     'destinationFolder': './html/resources/css',
-    //     'watchFiles': ['./tailwind.config.js', './source/sass/**/*.scss'],
-    //     'cleanFiles': ['./html/resources/css/styles.{css,map}']
-    // },
 
     // Styles
     'styles': {

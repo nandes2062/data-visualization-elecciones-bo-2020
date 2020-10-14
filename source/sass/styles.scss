@@ -9,13 +9,14 @@ This boilerplate is based in ITCSS and SMACSS
 @import "config/bg-opacity";
 
 // Tools
-@import "config/media-queries";
+// ....
 
 // Generic
   // font-faces imports
   // TailwinCSS with tailwind.config.js
 @import "fonts/heading-font";
 @import "fonts/body-font";
+@import "fonts/fontawesome";
 @import "generics/tailwind";
 
 //Element
@@ -24,19 +25,16 @@ This boilerplate is based in ITCSS and SMACSS
 // MODULOS (SMACSS) O COMPONENTES (ITCSS)
   // Son los elementos de UI personalizados de tu interfaz, como botones, tablas, menus, etc.
   // Crea los archivos adicionales que necesites (uno por componente)
-@import "components/inset";
+@import "components/sidebar";
 @import "components/font-size";
 @import "components/logo-header";
 @import "components/headroom";
 @import "components/video-filter";
 @import "components/text-shadow";
 @import "components/mouse-scroll";
-@import "components/typewriter";
 @import "components/underline";
 @import "components/scroll-active";
-@import "components/bg-customs";
 @import "components/truncate";
-@import "components/markdown";
 
 // Theme (colors and fonts)
 @import "theme/typography";

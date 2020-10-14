@@ -1,0 +1,12 @@
+.cta-btn {
+  @apply text-gray-700;
+}
+.active-nav-link { 
+  @apply bg-gray-900;
+}
+.nav-item:hover { 
+  @apply bg-gray-700;
+}
+.account-link:hover { 
+  @apply bg-gray-700  
+}

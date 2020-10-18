@@ -10,7 +10,7 @@ const imagesResize = {
   //   width: 100 * 2,
   //   suffix: '-100-2x'
   // }],
-  'candidatos/*.{jpg,png,jpeg,gif,webp}': [{
+  'candidatos-y-partidos/*.{jpg,png,jpeg,gif,webp}': [{
     crop: true,
     width: 100,
     height: 100,

@@ -21,8 +21,9 @@ html(lang="es" prefix="og: http://ogp.me/ns#")
     include sidebar.html
     div(class="w-full flex flex-col h-screen overflow-y-hidden")
       include header.html
-      .w-full
-        main
+      div(class="w-full overflow-x-hidden border-t flex flex-col ")
+        include breadcrumbs.html
+        main.container.mx-auto
           block main
     rex-footer
     script(src= path_media + "js/modernizr.js")

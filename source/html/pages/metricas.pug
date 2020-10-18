@@ -1,0 +1,8 @@
+extends ../layouts/template
+append config
+  -currentPage = 'Métricas'
+block main
+  include ../modules/index-module/facebook.stats.html
+  include ../modules/index-module/instagram.stats.html
+  include ../modules/index-module/twitter.stats.html
+  include ../modules/index-module/youtube.stats.html

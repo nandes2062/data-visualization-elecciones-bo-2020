@@ -3,10 +3,10 @@
   "name": "data-visualization-elecciones-bo-2020",
   "version": "1.0.0",
   "dependencies": {
+    "almete.wordcloud": "^19.0.0",
     "alpinejs": "^2.7.0",
     "chart.js": "^2.9.3",
     "chartjs-plugin-labels": "^1.1.0",
-    "gulp-htmlmin": "^5.0.1",
     "tailwindcss": "^1.9.0"
   },
   "devDependencies": {
@@ -29,6 +29,7 @@
     "gulp-concat": "^2.6.1",
     "gulp-count": "^1",
     "gulp-dart-sass": "^0",
+    "gulp-htmlmin": "^5.0.1",
     "gulp-imagemin": "^7",
     "gulp-plumber": "^1",
     "gulp-postcss": "^8",

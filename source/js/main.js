@@ -1,4 +1,5 @@
 import 'alpinejs'
+import './shared'
 import './modules'
 
-console.log('Data Visulitation Elecciones 2020 Bolivia')
+console.log('Data Visualitation Elecciones 2020 Bolivia')

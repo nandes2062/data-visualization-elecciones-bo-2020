@@ -9,6 +9,21 @@ import {
   CarlosMesaTwitter,
   JorgeQuirogaTwitter
 } from './twitter-polarity'
+import {
+  LuisArceFacebook,
+  CarlosMesaFacebook,
+  LuisFCamachoFacebook,
+  ChiHyunChungFacebook,
+  FelicianoMamaniFacebook,
+  MariaBayaFacebook,
+  JorgeQuirogaFacebook,
+  MASFacebook,
+  CCFacebook,
+  CreemosFacebook,
+  FPVFacebook,
+  PanBolFacebook,
+  Libre21Facebook,
+} from './facebook-polarity'
 
 export default window.SocialPolarityComponent = function () {
   return {
@@ -48,7 +63,12 @@ export default window.SocialPolarityComponent = function () {
       switch (candidateOrMatch) {
         case 'carlos-mesa':
           switch (socialMedia) {
-            case 'facebook':              
+            case 'facebook':
+              this.labels = CarlosMesaFacebook.map((v, k)=> {
+                const date = v.created_at.split(' ')
+                return date[0]
+              }).reverse()
+              this.dataChart = CarlosMesaFacebook.map((v, k)=>{ return v.polarity }).reverse()
               break
             case 'twitter':
               this.labels = CarlosMesaTwitter.map((v, k)=> {
@@ -67,7 +87,12 @@ export default window.SocialPolarityComponent = function () {
           break
         case 'luis-arce':
           switch (socialMedia) {
-            case 'facebook':              
+            case 'facebook':
+              this.labels = LuisArceFacebook.map((v, k)=> {
+                const date = v.created_at.split(' ')
+                return date[0]
+              }).reverse()
+              this.dataChart = LuisArceFacebook.map((v, k)=>{ return v.polarity }).reverse()
               break
             case 'twitter':
               this.labels = LuisArceTwitter.map((v, k)=> {

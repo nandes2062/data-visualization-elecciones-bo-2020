@@ -2,28 +2,36 @@ import Chart from 'chart.js'
 import 'chartjs-plugin-labels';
 import WordCloud from 'almete.wordcloud'
 
-import CarlosMesaTwitterWC from './twitter-wordcloud/@carlosdmesag.json'
+import {
+  LuisArceFacebook,
+  CarlosMesaFacebook,
+  LuisFCamachoFacebook,
+  ChiHyunChungFacebook,
+  FelicianoMamaniFacebook,
+  MariaBayaFacebook,
+  JorgeQuirogaFacebook,
+  MASFacebook,
+  CCFacebook,
+  CreemosFacebook,
+  FPVFacebook,
+  PanBolFacebook,
+  Libre21Facebook,
+} from './facebook-wordcloud'
 
 export default window.SocialWordcloudComponent = function () {
   return {
-    labels: CarlosMesaTwitterWC.map((v, k)=> {
-      return v.text
-    }).reverse(),
+    labels: null,
     dataChart: null,
     backgroundColor: null,
     borderColor: null,
     title: null,
     titleColor: null,
-    wordcloudInit (chartId, candidateOrMatch, socialMedia) {
-      const wcloudArray = CarlosMesaTwitterWC.map((v, k) => {
-        return {
-          text: v.text,
-          weight: v.value,
-          rotation: 0
-        }
-      })
-      console.log(wcloudArray)
-      let canvas = document.getElementById('canvasjaja')
+    wordcloudInit (chartId, wordcloudId, candidateOrMatch, socialMedia) {
+      this.socialMediaGet(socialMedia)
+      this.candidateOrMatchGet(chartId, wordcloudId, candidateOrMatch, socialMedia)
+    },
+    wordCloudGet (wordcloudId, wcloudArray) {
+      let canvas = wordcloudId
       let ctx = canvas.getContext('2d')
       ctx.clearRect(0, 0, canvas.width, canvas.height)
       let words = wcloudArray
@@ -37,7 +45,7 @@ export default window.SocialWordcloudComponent = function () {
         centerTop,
         font,
         rotationRad,
-        text,
+        text
       }) => {
         ctx.save()
         ctx.translate(centerLeft, centerTop)
@@ -45,98 +53,28 @@ export default window.SocialWordcloudComponent = function () {
         ctx.font = font
         ctx.textAlign = 'center'
         ctx.textBaseline = 'middle'
-        ctx.fillStyle = 'lightblue'
+        ctx.fillStyle = this.backgroundColor
         ctx.fillText(text, 0, 0)
         ctx.restore()
       })
-      this.chartWordCloudInit(chartId, candidateOrMatch, socialMedia)
     },
-    chartWordCloudInit (chartId, candidateOrMatch, socialMedia) {
-      switch (socialMedia) {
-        case 'facebook':
-          this.backgroundColor = 'rgba(81, 134, 228, 0.5)'
-          this.borderColor = 'rgba(81, 134, 228, .5)'
-          this.title = 'Análisis de sentimientos en Facebook'
-          // this.titleColor = 'rgba(81, 134, 228, 1)'
-          break;
-        case 'twitter':
-          this.backgroundColor = 'rgba(81, 134, 228, 0.5)'
-          this.borderColor = 'rgba(81, 134, 228, .5)'
-          this.title = 'Análisis de sentimientos en Twitter'
-          break;
-        case 'instagram':
-          this.backgroundColor = 'rgba(169, 102, 255, 0.5)'
-          this.borderColor = 'rgba(228, 109, 216, 0.5)'
-          this.title = 'Análisis de sentimientos en Instagram'
-          // this.titleColor = 'rgba(169, 102, 255, 1)'
-          break;
-        case 'youtube':
-          this.backgroundColor = 'rgba(215, 0, 28, 0.5)'
-          this.borderColor = 'rgba(215, 0, 28, 0.5)'
-          this.title = 'Análisis de sentimientos en Youtube'
-          break;
-        default:
-          break;
-      }
-      switch (candidateOrMatch) {
-        case 'carlos-mesa':
-          switch (socialMedia) {
-            case 'facebook':              
-              break;
-            case 'twitter':
-              // this.dataChart = CarlosMesaTwitter.map((v, k)=>{ return v.polarity }).reverse()
-              break;
-            case 'instagram':
-              break;
-            case 'youtube':
-              break;
-            default:
-              break;
-          }         
-          break;
-        case 'luis-arce':
-          break;
-        case 'luis-camacho':
-          break;
-          case 'chi-hyung-chung':          
-          break;
-        case 'feliciano-mamani':
-          break;
-        case 'maria-cruz':
-          break;
-        case 'carlos-mesa':          
-          break;
-        case 'luis-arce':
-          break;
-        case 'luis-arce':
-          break;
-          case 'carlos-mesa':          
-          break;
-        case 'luis-arce':
-          break;
-        case 'luis-arce':
-          break;      
-        default:
-          break;
-      }
+    chartWordCloudInit (chartId, wcloudArray) {
       new Chart(chartId, {
         type: 'horizontalBar',
         data: {
-          labels: this.labels,
+          labels: wcloudArray.map((v, k)=> {
+            return v.text
+          }),
           datasets: [
             {
-						  label: 'Polaridad',
-						  data: CarlosMesaTwitterWC.map((v, k) => {
-                return {
-                  text: v.text,
-                  weight: v.value,
-                  rotation: 0
-                }
+						  label: 'Peso de  de palabra más usada',
+						  data: wcloudArray.map((v, k)=> {
+                return v.value
               }),
 						  fill: false,
               backgroundColor: this.backgroundColor,
               borderColor: this.borderColor,
-						  borderWidth: 3,
+						  borderWidth: 1,
 						  hoverOffset: 4
             }
           ]
@@ -165,6 +103,338 @@ export default window.SocialWordcloudComponent = function () {
           }
         }
       })
+    },
+    socialMediaGet (socialMedia) {
+      switch (socialMedia) {
+        case 'facebook':
+          this.title = 'Peso de  de palabras mas usadas en Facebook'
+          this.backgroundColor = '#3b5998'
+          this.borderColor = '#3b5998'
+          break
+        case 'twitter':
+          this.title = 'Peso de  de palabras mas usadas en Twitter'
+          this.backgroundColor = '#3b5998'
+          this.borderColor = '#3b5998'
+          break
+        case 'instagram':
+          this.title = 'Peso de  de palabras mas usadas en Instagram'
+          this.backgroundColor = '#3b5998'
+          this.borderColor = '#3b5998'
+          break
+        case 'youtube':
+          this.title = 'Peso de  de palabras mas usadas en Youtube'
+          this.backgroundColor = '#3b5998'
+          this.borderColor = '#3b5998'
+          break
+        default:
+          break
+      }
+    },
+    candidateOrMatchGet (chartId, wordcloudId, candidateOrMatch, socialMedia) {
+      switch (candidateOrMatch) {
+        case 'luis-arce':
+          switch (socialMedia) {
+            case 'facebook':
+              this.wordCloudGet(wordcloudId, LuisArceFacebook.map((v, k) => {
+                return {
+                  text: v.text,
+                  weight: v.value,
+                  rotation: 0
+                }
+              }))
+              this.chartWordCloudInit(chartId, LuisArceFacebook)
+              break
+            case 'twitter':
+              break
+            case 'instagram':
+              break
+            case 'youtube':
+              break
+            default:
+              break
+          }
+          break
+        case 'carlos-mesa':
+          switch (socialMedia) {
+            case 'facebook':
+              this.wordCloudGet(wordcloudId, CarlosMesaFacebook.map((v, k) => {
+                return {
+                  text: v.text,
+                  weight: v.value,
+                  rotation: 0
+                }
+              }))
+              this.chartWordCloudInit(chartId, CarlosMesaFacebook)
+              break
+            case 'twitter':
+              break
+            case 'instagram':
+              break
+            case 'youtube':
+              break
+            default:
+              break
+          }
+          break
+        case 'luis-f-camacho':
+          switch (socialMedia) {
+            case 'facebook':
+              this.wordCloudGet(wordcloudId, LuisFCamachoFacebook.map((v, k) => {
+                return {
+                  text: v.text,
+                  weight: v.value,
+                  rotation: 0
+                }
+              }))
+              this.chartWordCloudInit(chartId, LuisFCamachoFacebook)
+              break
+            case 'twitter':
+              break
+            case 'instagram':
+              break
+            case 'youtube':
+              break
+            default:
+              break
+          }
+          break
+        case 'chi-hyung-chung':
+          switch (socialMedia) {
+            case 'facebook':
+              this.wordCloudGet(wordcloudId, ChiHyunChungFacebook.map((v, k) => {
+                return {
+                  text: v.text,
+                  weight: v.value,
+                  rotation: 0
+                }
+              }))
+              this.chartWordCloudInit(chartId, ChiHyunChungFacebook)       
+              break
+            case 'twitter':
+              break
+            case 'instagram':
+              break
+            case 'youtube':
+              break
+            default:
+              break
+          }
+          break
+        case 'feliciano-mamani':
+          switch (socialMedia) {
+            case 'facebook':
+              this.wordCloudGet(wordcloudId, FelicianoMamaniFacebook.map((v, k) => {
+                return {
+                  text: v.text,
+                  weight: v.value,
+                  rotation: 0
+                }
+              }))
+              this.chartWordCloudInit(chartId, FelicianoMamaniFacebook)
+              break
+            case 'twitter':
+              break
+            case 'instagram':
+              break
+            case 'youtube':
+              break
+            default:
+              break
+          }
+          break
+        case 'maria-cruz-baya':
+          switch (socialMedia) {
+            case 'facebook':
+              this.wordCloudGet(wordcloudId, MariaBayaFacebook.map((v, k) => {
+                return {
+                  text: v.text,
+                  weight: v.value,
+                  rotation: 0
+                }
+              }))
+              this.chartWordCloudInit(chartId, MariaBayaFacebook)
+              break
+            case 'twitter':
+              break
+            case 'instagram':
+              break
+            case 'youtube':
+              break
+            default:
+              break
+          }
+          break
+        case 'jorge-quiroga':
+          switch (socialMedia) {
+            case 'facebook':
+              this.wordCloudGet(wordcloudId, JorgeQuirogaFacebook.map((v, k) => {
+                return {
+                  text: v.text,
+                  weight: v.value,
+                  rotation: 0
+                }
+              }))
+              this.chartWordCloudInit(chartId, JorgeQuirogaFacebook)      
+              break
+            case 'twitter':
+              break
+            case 'instagram':
+              break
+            case 'youtube':
+              break
+            default:
+              break
+          }
+          break
+        case 'mas-ipsp':
+          switch (socialMedia) {
+            case 'facebook':
+              this.wordCloudGet(wordcloudId, MASFacebook.map((v, k) => {
+                return {
+                  text: v.text,
+                  weight: v.value,
+                  rotation: 0
+                }
+              }))
+              this.chartWordCloudInit(chartId, MASFacebook)         
+              break
+            case 'twitter':
+              break
+            case 'instagram':
+              break
+            case 'youtube':
+              break
+            default:
+              break
+          }
+          break
+        case 'comunidad-ciudadana':
+          switch (socialMedia) {
+            case 'facebook':
+              this.wordCloudGet(wordcloudId, CCFacebook.map((v, k) => {
+                return {
+                  text: v.text,
+                  weight: v.value,
+                  rotation: 0
+                }
+              }))
+              this.chartWordCloudInit(chartId, CCFacebook)            
+              break
+            case 'twitter':
+              break
+            case 'instagram':
+              break
+            case 'youtube':
+              break
+            default:
+              break
+          }
+          break
+        case 'creemos':
+          switch (socialMedia) {
+            case 'facebook':
+              this.wordCloudGet(wordcloudId, CreemosFacebook.map((v, k) => {
+                return {
+                  text: v.text,
+                  weight: v.value,
+                  rotation: 0
+                }
+              }))
+              this.chartWordCloudInit(chartId, CreemosFacebook)
+              break
+            case 'twitter':
+              break
+            case 'instagram':
+              break
+            case 'youtube':
+              break
+            default:
+              break
+          }
+          break
+        case 'fpv':
+          switch (socialMedia) {
+            case 'facebook':
+              this.wordCloudGet(wordcloudId, FPVFacebook.map((v, k) => {
+                return {
+                  text: v.text,
+                  weight: v.value,
+                  rotation: 0
+                }
+              }))
+              this.chartWordCloudInit(chartId, FPVFacebook)
+              break
+            case 'twitter':
+              break
+            case 'instagram':
+              break
+            case 'youtube':
+              break
+            default:
+              break
+          }
+          break
+        case 'pan-bol':
+          switch (socialMedia) {
+            case 'facebook':
+              this.wordCloudGet(wordcloudId, PanBolFacebook.map((v, k) => {
+                return {
+                  text: v.text,
+                  weight: v.value,
+                  rotation: 0
+                }
+              }))
+              this.chartWordCloudInit(chartId, PanBolFacebook)
+              break
+            case 'twitter':
+              break
+            case 'instagram':
+              break
+            case 'youtube':
+              break
+            default:
+              break
+          }
+          break
+        case 'adn':
+          switch (socialMedia) {
+            case 'facebook':
+              break
+            case 'twitter':
+              break
+            case 'instagram':
+              break
+            case 'youtube':
+              break
+            default:
+              break
+          }
+          break
+        case 'libre21':
+          switch (socialMedia) {
+            case 'facebook':
+              this.wordCloudGet(wordcloudId, Libre21Facebook.map((v, k) => {
+                return {
+                  text: v.text,
+                  weight: v.value,
+                  rotation: 0
+                }
+              }))
+              this.chartWordCloudInit(chartId, Libre21Facebook)
+              break
+            case 'twitter':
+              break
+            case 'instagram':
+              break
+            case 'youtube':
+              break
+            default:
+              break
+          }
+          break
+        default:
+          break
+      }
     }
   }
 }

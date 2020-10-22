@@ -61,30 +61,6 @@ export default window.SocialPolarityComponent = function () {
           break
       }
       switch (candidateOrMatch) {
-        case 'carlos-mesa':
-          switch (socialMedia) {
-            case 'facebook':
-              this.labels = CarlosMesaFacebook.map((v, k)=> {
-                const date = v.created_at.split(' ')
-                return date[0]
-              }).reverse()
-              this.dataChart = CarlosMesaFacebook.map((v, k)=>{ return v.polarity }).reverse()
-              break
-            case 'twitter':
-              this.labels = CarlosMesaTwitter.map((v, k)=> {
-                const date = v.created_at.split(' ')
-                return date[0]
-              }).reverse()
-              this.dataChart = CarlosMesaTwitter.map((v, k)=>{ return v.polarity }).reverse()
-              break
-            case 'instagram':
-              break
-            case 'youtube':
-              break
-            default:
-              break
-          }
-          break
         case 'luis-arce':
           switch (socialMedia) {
             case 'facebook':
@@ -100,6 +76,30 @@ export default window.SocialPolarityComponent = function () {
                 return date[0]
               }).reverse()
               this.dataChart = LuisArceTwitter.map((v, k)=>{ return v.polarity }).reverse()
+              break
+            case 'instagram':
+              break
+            case 'youtube':
+              break
+            default:
+              break
+          }
+          break
+        case 'carlos-mesa':
+          switch (socialMedia) {
+            case 'facebook':
+              this.labels = CarlosMesaFacebook.map((v, k)=> {
+                const date = v.created_at.split(' ')
+                return date[0]
+              }).reverse()
+              this.dataChart = CarlosMesaFacebook.map((v, k)=>{ return v.polarity }).reverse()
+              break
+            case 'twitter':
+              this.labels = CarlosMesaTwitter.map((v, k)=> {
+                const date = v.created_at.split(' ')
+                return date[0]
+              }).reverse()
+              this.dataChart = CarlosMesaTwitter.map((v, k)=>{ return v.polarity }).reverse()
               break
             case 'instagram':
               break
@@ -138,6 +138,34 @@ export default window.SocialPolarityComponent = function () {
                 return date[0]
               }).reverse()
               this.dataChart = ChiHyunChungTwitter.map((v, k)=>{ return v.polarity }).reverse()
+              break
+            case 'instagram':
+              break
+            case 'youtube':
+              break
+            default:
+              break
+          }
+          break
+        case 'feliciano-mamani':
+          switch (socialMedia) {
+            case 'facebook':
+              break
+            case 'twitter':
+              break
+            case 'instagram':
+              break
+            case 'youtube':
+              break
+            default:
+              break
+          }
+          break
+        case 'maria-cruz-baya':
+          switch (socialMedia) {
+            case 'facebook':
+              break
+            case 'twitter':
               break
             case 'instagram':
               break
@@ -204,16 +232,76 @@ export default window.SocialPolarityComponent = function () {
               break
           }
           break
-        case 'luis-arce':
+        case 'creemos':
+          switch (socialMedia) {
+            case 'facebook':
+              break
+            case 'twitter':
+              break
+            case 'instagram':
+              break
+            case 'youtube':
+              break
+            default:
+              break
+          }
           break
-        case 'luis-arce':
+        case 'fpv':
+          switch (socialMedia) {
+            case 'facebook':
+              break
+            case 'twitter':
+              break
+            case 'instagram':
+              break
+            case 'youtube':
+              break
+            default:
+              break
+          }
           break
-          case 'carlos-mesa':          
+        case 'pan-bol':
+          switch (socialMedia) {
+            case 'facebook':
+              break
+            case 'twitter':
+              break
+            case 'instagram':
+              break
+            case 'youtube':
+              break
+            default:
+              break
+          }
           break
-        case 'luis-arce':
+        case 'adn':
+          switch (socialMedia) {
+            case 'facebook':
+              break
+            case 'twitter':
+              break
+            case 'instagram':
+              break
+            case 'youtube':
+              break
+            default:
+              break
+          }
           break
-        case 'luis-arce':
-          break      
+        case 'libre21':
+          switch (socialMedia) {
+            case 'facebook':
+              break
+            case 'twitter':
+              break
+            case 'instagram':
+              break
+            case 'youtube':
+              break
+            default:
+              break
+          }
+          break
         default:
           break
       }

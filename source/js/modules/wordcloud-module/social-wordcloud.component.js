@@ -17,6 +17,51 @@ import {
   PanBolFacebook,
   Libre21Facebook,
 } from './facebook-wordcloud'
+import {
+  LuisArceInstagram,
+  CarlosMesaInstagram,
+  LuisFCamachoInstagram,
+  ChiHyunChungInstagram,
+  // FelicianoMamaniInstagram,
+  // MariaBayaInstagram,
+  JorgeQuirogaInstagram,
+  MASInstagram,
+  // CCInstagram,
+  // CreemosInstagram,
+  // FPVInstagram,
+  // PanBolInstagram,
+  // Libre21Instagram,
+} from './instagram-wordcloud'
+import {
+  LuisArceTwitter,
+  CarlosMesaTwitter,
+  LuisFCamachoTwitter,
+  ChiHyunChungTwitter,
+  // FelicianoMamaniTwitter,
+  // MariaBayaTwitter,
+  JorgeQuirogaTwitter,
+  MASTwitter,
+  CCTwitter,
+  // CreemosTwitter,
+  // FPVTwitter,
+  // PanBolTwitter,
+  // Libre21Twitter,
+} from './twitter-wordcloud'
+import {
+  // LuisArceYoutube,
+  CarlosMesaYoutube,
+  // LuisFCamachoYoutube,
+  // ChiHyunChungYoutube,
+  // FelicianoMamaniYoutube,
+  // MariaBayaYoutube,
+  JorgeQuirogaYoutube
+  // MASYoutube,
+  // CCYoutube,
+  // CreemosYoutube,
+  // FPVYoutube,
+  // PanBolYoutube,
+  // Libre21Youtube,
+} from './youtube-wordcloud'
 
 export default window.SocialWordcloudComponent = function () {
   return {
@@ -145,8 +190,24 @@ export default window.SocialWordcloudComponent = function () {
               this.chartWordCloudInit(chartId, LuisArceFacebook)
               break
             case 'twitter':
+              this.wordCloudGet(wordcloudId, LuisArceTwitter.map((v, k) => {
+                return {
+                  text: v.text,
+                  weight: v.value,
+                  rotation: 0
+                }
+              }))
+              this.chartWordCloudInit(chartId, LuisArceTwitter)
               break
             case 'instagram':
+              this.wordCloudGet(wordcloudId, LuisArceInstagram.map((v, k) => {
+                return {
+                  text: v.text,
+                  weight: v.value,
+                  rotation: 0
+                }
+              }))
+              this.chartWordCloudInit(chartId, LuisArceInstagram)
               break
             case 'youtube':
               break
@@ -167,10 +228,34 @@ export default window.SocialWordcloudComponent = function () {
               this.chartWordCloudInit(chartId, CarlosMesaFacebook)
               break
             case 'twitter':
+              this.wordCloudGet(wordcloudId, CarlosMesaTwitter.map((v, k) => {
+                return {
+                  text: v.text,
+                  weight: v.value,
+                  rotation: 0
+                }
+              }))
+              this.chartWordCloudInit(chartId, CarlosMesaTwitter)
               break
             case 'instagram':
+              this.wordCloudGet(wordcloudId, CarlosMesaInstagram.map((v, k) => {
+                return {
+                  text: v.text,
+                  weight: v.value,
+                  rotation: 0
+                }
+              }))
+              this.chartWordCloudInit(chartId, CarlosMesaInstagram)
               break
             case 'youtube':
+              this.wordCloudGet(wordcloudId, CarlosMesaYoutube.map((v, k) => {
+                return {
+                  text: v.text,
+                  weight: v.value,
+                  rotation: 0
+                }
+              }))
+              this.chartWordCloudInit(chartId, CarlosMesaYoutube)
               break
             default:
               break
@@ -189,8 +274,24 @@ export default window.SocialWordcloudComponent = function () {
               this.chartWordCloudInit(chartId, LuisFCamachoFacebook)
               break
             case 'twitter':
+              this.wordCloudGet(wordcloudId, LuisFCamachoTwitter.map((v, k) => {
+                return {
+                  text: v.text,
+                  weight: v.value,
+                  rotation: 0
+                }
+              }))
+              this.chartWordCloudInit(chartId, LuisFCamachoTwitter)
               break
             case 'instagram':
+              this.wordCloudGet(wordcloudId, LuisFCamachoInstagram.map((v, k) => {
+                return {
+                  text: v.text,
+                  weight: v.value,
+                  rotation: 0
+                }
+              }))
+              this.chartWordCloudInit(chartId, LuisFCamachoInstagram)
               break
             case 'youtube':
               break
@@ -211,8 +312,24 @@ export default window.SocialWordcloudComponent = function () {
               this.chartWordCloudInit(chartId, ChiHyunChungFacebook)       
               break
             case 'twitter':
+              this.wordCloudGet(wordcloudId, ChiHyunChungTwitter.map((v, k) => {
+                return {
+                  text: v.text,
+                  weight: v.value,
+                  rotation: 0
+                }
+              }))
+              this.chartWordCloudInit(chartId, ChiHyunChungTwitter) 
               break
             case 'instagram':
+              this.wordCloudGet(wordcloudId, ChiHyunChungInstagram.map((v, k) => {
+                return {
+                  text: v.text,
+                  weight: v.value,
+                  rotation: 0
+                }
+              }))
+              this.chartWordCloudInit(chartId, ChiHyunChungInstagram) 
               break
             case 'youtube':
               break
@@ -277,10 +394,34 @@ export default window.SocialWordcloudComponent = function () {
               this.chartWordCloudInit(chartId, JorgeQuirogaFacebook)      
               break
             case 'twitter':
+              this.wordCloudGet(wordcloudId, JorgeQuirogaTwitter.map((v, k) => {
+                return {
+                  text: v.text,
+                  weight: v.value,
+                  rotation: 0
+                }
+              }))
+              this.chartWordCloudInit(chartId, JorgeQuirogaTwitter)  
               break
             case 'instagram':
+              this.wordCloudGet(wordcloudId, JorgeQuirogaInstagram.map((v, k) => {
+                return {
+                  text: v.text,
+                  weight: v.value,
+                  rotation: 0
+                }
+              }))
+              this.chartWordCloudInit(chartId, JorgeQuirogaInstagram)
               break
             case 'youtube':
+              this.wordCloudGet(wordcloudId, JorgeQuirogaYoutube.map((v, k) => {
+                return {
+                  text: v.text,
+                  weight: v.value,
+                  rotation: 0
+                }
+              }))
+              this.chartWordCloudInit(chartId, JorgeQuirogaYoutube)
               break
             default:
               break
@@ -299,8 +440,24 @@ export default window.SocialWordcloudComponent = function () {
               this.chartWordCloudInit(chartId, MASFacebook)         
               break
             case 'twitter':
+              this.wordCloudGet(wordcloudId, MASTwitter.map((v, k) => {
+                return {
+                  text: v.text,
+                  weight: v.value,
+                  rotation: 0
+                }
+              }))
+              this.chartWordCloudInit(chartId, MASTwitter) 
               break
             case 'instagram':
+              this.wordCloudGet(wordcloudId, MASInstagram.map((v, k) => {
+                return {
+                  text: v.text,
+                  weight: v.value,
+                  rotation: 0
+                }
+              }))
+              this.chartWordCloudInit(chartId, MASInstagram)  
               break
             case 'youtube':
               break
@@ -321,6 +478,14 @@ export default window.SocialWordcloudComponent = function () {
               this.chartWordCloudInit(chartId, CCFacebook)            
               break
             case 'twitter':
+              this.wordCloudGet(wordcloudId, CCTwitter.map((v, k) => {
+                return {
+                  text: v.text,
+                  weight: v.value,
+                  rotation: 0
+                }
+              }))
+              this.chartWordCloudInit(chartId, CCTwitter) 
               break
             case 'instagram':
               break

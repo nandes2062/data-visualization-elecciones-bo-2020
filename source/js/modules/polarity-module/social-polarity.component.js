@@ -90,7 +90,7 @@ export default window.SocialPolarityComponent = function () {
             case 'facebook':
               this.labels = CarlosMesaFacebook.map((v, k)=> {
                 const date = v.created_at.split(' ')
-                return date[0]
+                return `${date[0]}`
               }).reverse()
               this.dataChart = CarlosMesaFacebook.map((v, k)=>{ return v.polarity }).reverse()
               break
@@ -313,6 +313,15 @@ export default window.SocialPolarityComponent = function () {
             {
 						  label: 'Polaridad',
 						  data: this.dataChart,
+						  fill: false,
+              backgroundColor: this.backgroundColor,
+              borderColor: this.borderColor,
+						  borderWidth: 1,
+						  hoverOffset: 4
+            },
+            {
+						  label: CarlosMesaFacebook.map((v, k)=>{ return v.text }).reverse(),
+						  data: CarlosMesaFacebook.map((v, k)=>{ return v.polarity }).reverse(),
 						  fill: false,
               backgroundColor: this.backgroundColor,
               borderColor: this.borderColor,

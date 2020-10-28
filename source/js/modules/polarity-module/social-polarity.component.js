@@ -24,6 +24,18 @@ import {
   PanBolFacebook,
   Libre21Facebook,
 } from './facebook-polarity'
+import {
+  LuisArceInstagram,
+  CarlosMesaInstagram,
+  LuisFCamachoInstagram,
+  ChiHyunChungInstagram,
+  JorgeQuirogaInstagram,
+  MASInstagram
+} from './instagram-polarity'
+import {
+  CarlosMesaYoutube,
+  JorgeQuirogaYoutube
+} from './youtube-polarity'
 
 export default window.SocialPolarityComponent = function () {
   return {
@@ -40,16 +52,13 @@ export default window.SocialPolarityComponent = function () {
         case 'luis-arce':
           switch (socialMedia) {
             case 'facebook':
-              this.dataFullGet(LuisArceFacebook)              
+              this.dataFullGet(candidateOrMatch, socialMedia, LuisArceFacebook)
               break
             case 'twitter':
-              this.labels = LuisArceTwitter.map((v, k)=> {
-                const date = v.created_at.split(' ')
-                return date[0]
-              }).reverse()
-              this.dataChart = LuisArceTwitter.map((v, k)=>{ return v.polarity }).reverse()
+              this.dataFullGet(candidateOrMatch, socialMedia, LuisArceTwitter)
               break
             case 'instagram':
+              this.dataFullGet(candidateOrMatch, socialMedia, LuisArceInstagram)
               break
             case 'youtube':
               break
@@ -60,18 +69,16 @@ export default window.SocialPolarityComponent = function () {
         case 'carlos-mesa':
           switch (socialMedia) {
             case 'facebook':
-              this.dataFullGet(CarlosMesaFacebook)
+              this.dataFullGet(candidateOrMatch, socialMedia, CarlosMesaFacebook)
               break
             case 'twitter':
-              this.labels = CarlosMesaTwitter.map((v, k)=> {
-                const date = v.created_at.split(' ')
-                return date[0]
-              }).reverse()
-              this.dataChart = CarlosMesaTwitter.map((v, k)=>{ return v.polarity }).reverse()
+              this.dataFullGet(candidateOrMatch, socialMedia, CarlosMesaTwitter)
               break
             case 'instagram':
+              this.dataFullGet(candidateOrMatch, socialMedia, CarlosMesaInstagram)
               break
             case 'youtube':
+              this.dataFullGet(candidateOrMatch, socialMedia, CarlosMesaYoutube)
               break
             default:
               break
@@ -80,16 +87,13 @@ export default window.SocialPolarityComponent = function () {
         case 'luis-f-camacho':
           switch (socialMedia) {
             case 'facebook':
-              this.dataFullGet(LuisFCamachoFacebook)            
+              this.dataFullGet(candidateOrMatch, socialMedia, LuisFCamachoFacebook)            
               break
             case 'twitter':
-              this.labels = LuisFCamachoTwitter.map((v, k)=> {
-                const date = v.created_at.split(' ')
-                return date[0]
-              }).reverse()
-              this.dataChart = LuisFCamachoTwitter.map((v, k)=>{ return v.polarity }).reverse()
+              this.dataFullGet(candidateOrMatch, socialMedia, LuisFCamachoTwitter)
               break
             case 'instagram':
+              this.dataFullGet(candidateOrMatch, socialMedia, LuisFCamachoInstagram)
               break
             case 'youtube':
               break
@@ -100,12 +104,13 @@ export default window.SocialPolarityComponent = function () {
         case 'chi-hyung-chung':
           switch (socialMedia) {
             case 'facebook':
-              this.dataFullGet(ChiHyunChungFacebook)
+              this.dataFullGet(candidateOrMatch, socialMedia, ChiHyunChungFacebook)
               break
             case 'twitter':
-              this.dataFullGet(ChiHyunChungTwitter)
+              this.dataFullGet(candidateOrMatch, socialMedia, ChiHyunChungTwitter)
               break
             case 'instagram':
+              this.dataFullGet(candidateOrMatch, socialMedia, ChiHyunChungInstagram)
               break
             case 'youtube':
               break
@@ -116,7 +121,7 @@ export default window.SocialPolarityComponent = function () {
         case 'feliciano-mamani':
           switch (socialMedia) {
             case 'facebook':
-              this.dataFullGet(FelicianoMamaniFacebook)
+              this.dataFullGet(candidateOrMatch, socialMedia, FelicianoMamaniFacebook)
               break
             case 'twitter':
               break
@@ -131,7 +136,7 @@ export default window.SocialPolarityComponent = function () {
         case 'maria-cruz-baya':
           switch (socialMedia) {
             case 'facebook':
-              this.dataFullGet(MariaBayaFacebook)
+              this.dataFullGet(candidateOrMatch, socialMedia, MariaBayaFacebook)
               break
             case 'twitter':
               break
@@ -146,13 +151,16 @@ export default window.SocialPolarityComponent = function () {
         case 'jorge-quiroga':
           switch (socialMedia) {
             case 'facebook':
-              this.dataFullGet(JorgeQuirogaFacebook)
+              this.dataFullGet(candidateOrMatch, socialMedia, JorgeQuirogaFacebook)
               break
             case 'twitter':
-              this.dataFullGet(JorgeQuirogaTwitter)
+              this.dataFullGet(candidateOrMatch, socialMedia, JorgeQuirogaTwitter)
+              break
             case 'instagram':
+              this.dataFullGet(candidateOrMatch, socialMedia, JorgeQuirogaInstagram)  
               break
             case 'youtube':
+              this.dataFullGet(candidateOrMatch, socialMedia, JorgeQuirogaYoutube)
               break
             default:
               break
@@ -161,12 +169,13 @@ export default window.SocialPolarityComponent = function () {
         case 'mas-ipsp':
           switch (socialMedia) {
             case 'facebook':
-              this.dataFullGet(MASFacebook)
+              this.dataFullGet(candidateOrMatch, socialMedia, MASFacebook)
               break
             case 'twitter':
-              this.dataFullGet(MASTwitter)
+              this.dataFullGet(candidateOrMatch, socialMedia, MASTwitter)
               break
             case 'instagram':
+              this.dataFullGet(candidateOrMatch, socialMedia, MASInstagram)
               break
             case 'youtube':
               break
@@ -177,10 +186,10 @@ export default window.SocialPolarityComponent = function () {
         case 'comunidad-ciudadana':
           switch (socialMedia) {
             case 'facebook':
-              this.dataFullGet(CCFacebook)
+              this.dataFullGet(candidateOrMatch, socialMedia, CCFacebook)
               break
             case 'twitter':
-              this.dataFullGet(CCTwitter)              
+              this.dataFullGet(candidateOrMatch, socialMedia, CCTwitter)              
               break
             case 'instagram':
               break
@@ -193,7 +202,7 @@ export default window.SocialPolarityComponent = function () {
         case 'creemos':
           switch (socialMedia) {
             case 'facebook':
-              this.dataFullGet(CreemosFacebook)
+              this.dataFullGet(candidateOrMatch, socialMedia, CreemosFacebook)
               break
             case 'twitter':
               break
@@ -208,7 +217,7 @@ export default window.SocialPolarityComponent = function () {
         case 'fpv':
           switch (socialMedia) {
             case 'facebook':
-              this.dataFullGet(FPVFacebook)
+              this.dataFullGet(candidateOrMatch, socialMedia, FPVFacebook)
               break
             case 'twitter':
               break
@@ -223,7 +232,7 @@ export default window.SocialPolarityComponent = function () {
         case 'pan-bol':
           switch (socialMedia) {
             case 'facebook':
-              this.dataFullGet(PanBolFacebook)
+              this.dataFullGet(candidateOrMatch, socialMedia, PanBolFacebook)
               break
             case 'twitter':
               break
@@ -252,7 +261,7 @@ export default window.SocialPolarityComponent = function () {
         case 'libre21':
           switch (socialMedia) {
             case 'facebook':
-              this.dataFullGet(Libre21Facebook)
+              this.dataFullGet(candidateOrMatch, socialMedia, Libre21Facebook)
               break
             case 'twitter':
               break
@@ -287,10 +296,14 @@ export default window.SocialPolarityComponent = function () {
           tooltips: {
             callbacks: {
               title: function(tooltipItem, data) {
-                return data['labels'][tooltipItem[0]['index']];
+                if (data['labels'][tooltipItem[0]['index']] !== '.') {
+                  return data['labels'][tooltipItem[0]['index']]                  
+                } else {
+                  return 'Youtube'
+                }
               },
               label: function(tooltipItem, data) {
-                return ` ${data['datasets'][0]['data'][tooltipItem['index']]}`;
+                return `Polaridad: ${data['datasets'][0]['data'][tooltipItem['index']]}`;
               }
             }           
           },
@@ -317,16 +330,21 @@ export default window.SocialPolarityComponent = function () {
           }
         }
       })
-      chartId.onclick = function (evt) {
+      chartId.onclick = (evt) => {
         var activePoints = newChart.getElementsAtEvent(evt)
         if (activePoints[0]) {
-          var chartData = activePoints[0]['_chart'].config.data
-          var idx = activePoints[0]['_index']
-          var label = chartData.labels[idx]
-          var polarity = chartData.datasets[0].data[idx]
+          const chartData = activePoints[0]['_chart'].config.data
+          const idx = activePoints[0]['_index']
+          const label = chartData.labels[idx]
+          const polarity = chartData.datasets[0].data[idx]
           const textPost = chartData.datasets[0].label[idx]
-          console.log(textPost)
-          alert('Texto de post: ' + textPost)
+          this.$store.postModal = {
+            open: true,
+            text: textPost,
+            createdAt: label,
+            polarity: polarity,
+            candidateOrMatch: 'luis-arce'
+          }
         }
       }
     },
@@ -358,21 +376,28 @@ export default window.SocialPolarityComponent = function () {
           break
       }
     },
-    dataFullGet (candidateOrMatch) {
-      this.labelsGet(candidateOrMatch)
-      this.labelGet(candidateOrMatch)
-      this.dataChartGet(candidateOrMatch)
+    dataFullGet (path, socialMedia, candidateOrMatch) {
+      this.labelsGet(path, socialMedia, candidateOrMatch)
+      this.labelGet(path, socialMedia, candidateOrMatch)
+      this.dataChartGet(path, socialMedia, candidateOrMatch)
     },
-    labelsGet (candidateOrMatch) {
+    labelsGet (path, socialMedia, candidateOrMatch) {
       this.labels = candidateOrMatch.map((v, k)=> {
-        const date = v.created_at.split(' ')
-        return `${date[0]}`
+        if (v.created_at) { 
+          const date = v.created_at.split(' ')
+          return `${date[0]}`
+        } else {
+          return '.'
+        }
       }).reverse()
     },
-    labelGet (candidateOrMatch) {
-      this.label = candidateOrMatch.map((v, k)=>{ return v.text }).reverse()
+    labelGet (path, socialMedia, candidateOrMatch) {
+      this.label = candidateOrMatch.map((v, k)=>{
+        const dataText = `${path}*.https://fernandoaveranga.netlify.app.*${socialMedia}*.https://fernandoaveranga.netlify.app.*${v.text}`.split('*.https://fernandoaveranga.netlify.app.*')
+        return dataText
+      }).reverse()
     },
-    dataChartGet (candidateOrMatch) {
+    dataChartGet (path, socialMedia, candidateOrMatch) {
       this.dataChart = candidateOrMatch.map((v, k)=>{ return v.polarity }).reverse()
     },
   }

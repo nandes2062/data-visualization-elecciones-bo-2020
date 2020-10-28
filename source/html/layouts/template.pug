@@ -11,20 +11,19 @@ html(lang="es" prefix="og: http://ogp.me/ns#")
     else
       title= currentPage.slice(0,1).toUpperCase() + currentPage.slice(1) + " | " + siteName + ' ' + slogan
       meta(property="og:title" content=currentPage.slice(0,1).toUpperCase() + currentPage.slice(1) + " | " + siteName)
-    meta(name='designer', content='Fernando Javier Averanga Aruquipa / nandes.ingsistemas@gmail.com')
+    meta(name='designer', content='Fernando Javier Averanga Aruquipa (https://fernandoaveranga.netlify.app)')
     meta(name="description" content=description)
     meta(property="og:description" content=description)  
-    meta(name='author', content='')
-    meta(name='keywords', content='')
+    //- meta(name='author', content='')
+    //- meta(name='keywords', content='')
     link(rel="stylesheet" href= path_media + "css/styles.css?v=" + siteVersion)
-  body(class="bg-gray-100 font-family-karla flex")
+  body(class="bg-gray-100 flex overflow-y-hidden")
     include sidebar
     div(class="w-full flex flex-col h-screen overflow-y-hidden")
-      include header.html
+      include header
       div(class="w-full overflow-x-hidden border-t flex flex-col ")
         include breadcrumbs.html
         main.container.mx-auto
           block main
-    rex-footer
     script(src= path_media + "js/modernizr.js")
     script(src= path_media + "js/script.js?v=" + siteVersion)

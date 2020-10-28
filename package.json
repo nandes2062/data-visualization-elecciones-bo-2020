@@ -3,6 +3,7 @@
   "name": "data-visualization-elecciones-bo-2020",
   "version": "1.0.0",
   "dependencies": {
+    "@ryangjchandler/spruce": "^2.0.1",
     "almete.wordcloud": "^19.0.0",
     "alpinejs": "^2.7.0",
     "chart.js": "^2.9.3",
@@ -54,6 +55,8 @@
     "standard": "^11",
     "terser": "^4",
     "through": "^2",
+    "typeface-karla": "^1.1.13",
+    "typeface-rubik": "^1.1.13",
     "uglify-js": "^3",
     "vinyl-buffer": "^1",
     "vinyl-source-stream": "^2",

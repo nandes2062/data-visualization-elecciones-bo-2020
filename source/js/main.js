@@ -1,3 +1,4 @@
+import './store'
 import 'alpinejs'
 import './shared'
 import './modules'

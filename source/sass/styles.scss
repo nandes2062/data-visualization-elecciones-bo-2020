@@ -3,10 +3,7 @@ This boilerplate is based in ITCSS and SMACSS
 */
 
 // Config
-@import "config/breakpoints";
-@import "config/colors";
 @import "config/typography";
-@import "config/bg-opacity";
 
 // Tools
 // ....
@@ -20,25 +17,16 @@ This boilerplate is based in ITCSS and SMACSS
 @import "generics/tailwind";
 
 //Element
-@import "base/base";
+// @import "base/base";
 
 // MODULOS (SMACSS) O COMPONENTES (ITCSS)
   // Son los elementos de UI personalizados de tu interfaz, como botones, tablas, menus, etc.
   // Crea los archivos adicionales que necesites (uno por componente)
 @import "components/sidebar";
-@import "components/font-size";
-@import "components/logo-header";
-@import "components/headroom";
-@import "components/video-filter";
-@import "components/text-shadow";
-@import "components/mouse-scroll";
-@import "components/underline";
-@import "components/scroll-active";
 @import "components/truncate";
 
 // Theme (colors and fonts)
 @import "theme/typography";
-@import "theme/colors";
 
 // Utilities (shame)
   // Todos los shame que hayas necesitado para solucionar conflictos

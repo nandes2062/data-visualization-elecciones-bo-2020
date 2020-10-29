@@ -1,0 +1,57 @@
+<!-- <header class="w-full flex items-center bg-white py-2 px-6 hidden md:flex">
+    <div class="w-1/2"></div>
+    <div x-data="{ isOpen: false }" class="relative w-1/2 flex justify-end">
+        <button @click="isOpen = !isOpen" class="realtive z-10 w-12 h-12 rounded-full overflow-hidden border-4 border-gray-400 hover:border-gray-300 focus:border-gray-300 focus:outline-none">
+            <img src="https://source.unsplash.com/uJ8LNVCBjFQ/400x400">
+        </button>
+        <button x-show="isOpen" @click="isOpen = false" class="h-full w-full fixed inset-0 cursor-default"></button>
+        <div x-show="isOpen" class="absolute w-32 bg-white rounded-lg shadow-lg py-2 mt-16">
+            <a href="#" class="block px-4 py-2 account-link hover:text-white">Account</a>
+            <a href="#" class="block px-4 py-2 account-link hover:text-white">Support</a>
+            <a href="#" class="block px-4 py-2 account-link hover:text-white">Sign Out</a>
+        </div>
+    </div>
+</header> -->
+
+<!-- Mobile Header & Nav -->
+<header x-data="{ isOpen: false }" class="w-full bg-blue-900 px-6 md:hidden">
+    <div class="flex items-center justify-between">
+        <a href="index.html" class="text-white text-sm font-semibold flex items-center hover:text-gray-300"><img src="resources/images/IDEA-INSTITUTE.png" class="h-16" alt="IDEA-INSTITUTE" /><p class="ml-2">“Comicios Mediáticos III” - Elecciones 2020 en Bolivia</p></a>
+        <button @click="isOpen = !isOpen" class="text-white text-3xl focus:outline-none py-5 pl-3">
+            <svg x-show="!isOpen" class="svg-inline--fa fa-bars fa-w-14" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bars" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"></path></svg>
+            <svg x-show="isOpen" class="svg-inline--fa fa-times fa-w-11" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512" data-fa-i2svg="" style="display: none;"><path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg>
+        </button>
+    </div>
+
+    //- <!-- Dropdown Nav -->
+    <nav :class="isOpen ? 'flex': 'hidden'" class="flex flex-col pt-4">
+        a(
+					href="index.html"
+					class= (currentPage === 'Inicio') ? 'active-nav-link' : ''
+					class="flex items-center text-white py-2 pl-4 nav-item"
+				)
+          <svg class="svg-inline--fa fa-tachometer-alt fa-w-18 mr-3" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="tachometer-alt" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg=""><path fill="currentColor" d="M288 32C128.94 32 0 160.94 0 320c0 52.8 14.25 102.26 39.06 144.8 5.61 9.62 16.3 15.2 27.44 15.2h443c11.14 0 21.83-5.58 27.44-15.2C561.75 422.26 576 372.8 576 320c0-159.06-128.94-288-288-288zm0 64c14.71 0 26.58 10.13 30.32 23.65-1.11 2.26-2.64 4.23-3.45 6.67l-9.22 27.67c-5.13 3.49-10.97 6.01-17.64 6.01-17.67 0-32-14.33-32-32S270.33 96 288 96zM96 384c-17.67 0-32-14.33-32-32s14.33-32 32-32 32 14.33 32 32-14.33 32-32 32zm48-160c-17.67 0-32-14.33-32-32s14.33-32 32-32 32 14.33 32 32-14.33 32-32 32zm246.77-72.41l-61.33 184C343.13 347.33 352 364.54 352 384c0 11.72-3.38 22.55-8.88 32H232.88c-5.5-9.45-8.88-20.28-8.88-32 0-33.94 26.5-61.43 59.9-63.59l61.34-184.01c4.17-12.56 17.73-19.45 30.36-15.17 12.57 4.19 19.35 17.79 15.17 30.36zm14.66 57.2l15.52-46.55c3.47-1.29 7.13-2.23 11.05-2.23 17.67 0 32 14.33 32 32s-14.33 32-32 32c-11.38-.01-20.89-6.28-26.57-15.22zM480 384c-17.67 0-32-14.33-32-32s14.33-32 32-32 32 14.33 32 32-14.33 32-32 32z"></path></svg><!-- <i class="fas fa-tachometer-alt mr-3"></i> -->
+          | Inicio
+        a(
+					href="nube-de-palabras.html"
+					class= (currentPage === 'Nube de palabras') ? 'active-nav-link' : ''
+					class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item"
+				)
+          <svg class="svg-inline--fa fa-sticky-note fa-w-14 mr-3" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="sticky-note" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M312 320h136V56c0-13.3-10.7-24-24-24H24C10.7 32 0 42.7 0 56v400c0 13.3 10.7 24 24 24h264V344c0-13.2 10.8-24 24-24zm129 55l-98 98c-4.5 4.5-10.6 7-17 7h-6V352h128v6.1c0 6.3-2.5 12.4-7 16.9z"></path></svg><!-- <i class="fas fa-sticky-note mr-3"></i> -->
+          |  Nube de palabras
+        a(
+					href="analisis-de-sentimientos.html"
+					class= (currentPage === 'Análisis de sentimientos') ? 'active-nav-link' : ''
+					class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item"
+				)
+          <svg class="svg-inline--fa fa-table fa-w-16 mr-3" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="table" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M464 32H48C21.49 32 0 53.49 0 80v352c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V80c0-26.51-21.49-48-48-48zM224 416H64v-96h160v96zm0-160H64v-96h160v96zm224 160H288v-96h160v96zm0-160H288v-96h160v96z"></path></svg><!-- <i class="fas fa-table mr-3"></i> -->
+          |  Análisis de sentimientos
+        a(
+					href="metricas.html"
+					class= (currentPage === 'Métricas') ? 'active-nav-link' : ''
+					class="flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item"
+				)
+          <svg class="svg-inline--fa fa-align-left fa-w-14 mr-3" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="align-left" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M12.83 352h262.34A12.82 12.82 0 0 0 288 339.17v-38.34A12.82 12.82 0 0 0 275.17 288H12.83A12.82 12.82 0 0 0 0 300.83v38.34A12.82 12.82 0 0 0 12.83 352zm0-256h262.34A12.82 12.82 0 0 0 288 83.17V44.83A12.82 12.82 0 0 0 275.17 32H12.83A12.82 12.82 0 0 0 0 44.83v38.34A12.82 12.82 0 0 0 12.83 96zM432 160H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zm0 256H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16z"></path></svg><!-- <i class="fas fa-align-left mr-3"></i> -->
+          |  Metricas
+    </nav>
+</header>

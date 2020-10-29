@@ -1,10 +1,4 @@
-import facebookStats from './facebook-stats/'
-import twitterStats from './twitter-stats'
-import instagramStats from './instagram-stats'
-import youtubeStats from './youtube-stats'
+import MetricsComponent from './metrics.component'
 export default {
-  facebookStats,
-  twitterStats,
-  instagramStats,
-  youtubeStats
+  MetricsComponent
 }

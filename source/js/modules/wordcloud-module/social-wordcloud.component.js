@@ -112,7 +112,7 @@ export default window.SocialWordcloudComponent = function () {
           }),
           datasets: [
             {
-						  label: 'Peso de  de palabra más usada',
+						  label: 'Peso de palabra',
 						  data: wcloudArray.map((v, k)=> {
                 return v.value
               }),
@@ -152,22 +152,22 @@ export default window.SocialWordcloudComponent = function () {
     socialMediaGet (socialMedia) {
       switch (socialMedia) {
         case 'facebook':
-          this.title = 'Peso de  de palabras mas usadas en Facebook'
+          this.title = 'Peso de palabras mas usadas en Facebook'
           this.backgroundColor = '#3b5998'
           this.borderColor = '#3b5998'
           break
         case 'twitter':
-          this.title = 'Peso de  de palabras mas usadas en Twitter'
+          this.title = 'Peso de palabras mas usadas en Twitter'
           this.backgroundColor = '#3b5998'
           this.borderColor = '#3b5998'
           break
         case 'instagram':
-          this.title = 'Peso de  de palabras mas usadas en Instagram'
+          this.title = 'Peso de palabras mas usadas en Instagram'
           this.backgroundColor = '#3b5998'
           this.borderColor = '#3b5998'
           break
         case 'youtube':
-          this.title = 'Peso de  de palabras mas usadas en Youtube'
+          this.title = 'Peso de palabras mas usadas en Youtube'
           this.backgroundColor = '#3b5998'
           this.borderColor = '#3b5998'
           break

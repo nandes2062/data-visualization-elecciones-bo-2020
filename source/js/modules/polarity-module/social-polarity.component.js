@@ -303,7 +303,18 @@ export default window.SocialPolarityComponent = function () {
                 }
               },
               label: function(tooltipItem, data) {
-                return `Polaridad: ${data['datasets'][0]['data'][tooltipItem['index']]}`;
+                const statePolarity = data['datasets'][0]['data'][tooltipItem['index']]
+                let textPolarity = 'Neutra'
+                if (statePolarity > 0) {
+                  textPolarity = 'Positiva'
+                }
+                if (statePolarity === 0) {
+                  textPolarity = 'Neutra'
+                }
+                if (statePolarity < 0) {
+                  textPolarity = 'Negativa'
+                }
+                return `Polaridad: ${data['datasets'][0]['data'][tooltipItem['index']]} (${textPolarity})`;
               }
             }           
           },
@@ -342,8 +353,7 @@ export default window.SocialPolarityComponent = function () {
             open: true,
             text: textPost,
             createdAt: label,
-            polarity: polarity,
-            candidateOrMatch: 'luis-arce'
+            polarity: polarity
           }
         }
       }

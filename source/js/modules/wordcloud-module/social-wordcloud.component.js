@@ -80,11 +80,7 @@ export default window.SocialWordcloudComponent = function () {
       let ctx = canvas.getContext('2d')
       ctx.clearRect(0, 0, canvas.width, canvas.height)
       let words = wcloudArray
-      let boundedWords = WordCloud(words, canvas.width, canvas.height, {
-        fontFamily: 'Roboto',
-        fontWeight: 'bold',
-        rotationUnit: 'deg',
-      })
+      let boundedWords = WordCloud(words, canvas.width, canvas.height, {})
       boundedWords.forEach(({
         centerLeft,
         centerTop,

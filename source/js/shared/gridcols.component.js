@@ -1,5 +1,5 @@
 export default window.gridcolsComponent = function () {
   return {
-		col: 2
+		col: 1
   }
 }

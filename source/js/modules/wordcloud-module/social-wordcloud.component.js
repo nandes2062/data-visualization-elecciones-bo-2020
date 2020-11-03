@@ -149,22 +149,22 @@ export default window.SocialWordcloudComponent = function () {
       switch (socialMedia) {
         case 'facebook':
           this.title = 'Peso de palabras mas usadas en Facebook'
-          this.backgroundColor = '#3b5998'
+          // this.backgroundColor = '#3b5998'
           this.borderColor = '#3b5998'
           break
         case 'twitter':
           this.title = 'Peso de palabras mas usadas en Twitter'
-          this.backgroundColor = '#3b5998'
+          // this.backgroundColor = '#3b5998'
           this.borderColor = '#3b5998'
           break
         case 'instagram':
           this.title = 'Peso de palabras mas usadas en Instagram'
-          this.backgroundColor = '#3b5998'
+          // this.backgroundColor = '#3b5998'
           this.borderColor = '#3b5998'
           break
         case 'youtube':
           this.title = 'Peso de palabras mas usadas en Youtube'
-          this.backgroundColor = '#3b5998'
+          // this.backgroundColor = '#3b5998'
           this.borderColor = '#3b5998'
           break
         default:
@@ -174,6 +174,7 @@ export default window.SocialWordcloudComponent = function () {
     candidateOrMatchGet (chartId, wordcloudId, candidateOrMatch, socialMedia) {
       switch (candidateOrMatch) {
         case 'luis-arce':
+          this.backgroundColor = '#2c5282'
           switch (socialMedia) {
             case 'facebook':
               this.wordCloudGet(wordcloudId, LuisArceFacebook.map((v, k) => {
@@ -212,6 +213,7 @@ export default window.SocialWordcloudComponent = function () {
           }
           break
         case 'carlos-mesa':
+          this.backgroundColor = '#ed8936'
           switch (socialMedia) {
             case 'facebook':
               this.wordCloudGet(wordcloudId, CarlosMesaFacebook.map((v, k) => {
@@ -258,6 +260,7 @@ export default window.SocialWordcloudComponent = function () {
           }
           break
         case 'luis-f-camacho':
+          this.backgroundColor = '#d53f8c'
           switch (socialMedia) {
             case 'facebook':
               this.wordCloudGet(wordcloudId, LuisFCamachoFacebook.map((v, k) => {
@@ -296,6 +299,7 @@ export default window.SocialWordcloudComponent = function () {
           }
           break
         case 'chi-hyung-chung':
+          this.backgroundColor = '#2f855a'
           switch (socialMedia) {
             case 'facebook':
               this.wordCloudGet(wordcloudId, ChiHyunChungFacebook.map((v, k) => {
@@ -334,6 +338,7 @@ export default window.SocialWordcloudComponent = function () {
           }
           break
         case 'feliciano-mamani':
+          this.backgroundColor = '#e53e3e'
           switch (socialMedia) {
             case 'facebook':
               this.wordCloudGet(wordcloudId, FelicianoMamaniFacebook.map((v, k) => {
@@ -356,6 +361,7 @@ export default window.SocialWordcloudComponent = function () {
           }
           break
         case 'maria-cruz-baya':
+          this.backgroundColor = '#1a202c'
           switch (socialMedia) {
             case 'facebook':
               this.wordCloudGet(wordcloudId, MariaBayaFacebook.map((v, k) => {
@@ -378,6 +384,7 @@ export default window.SocialWordcloudComponent = function () {
           }
           break
         case 'jorge-quiroga':
+          this.backgroundColor = '#2f855a'
           switch (socialMedia) {
             case 'facebook':
               this.wordCloudGet(wordcloudId, JorgeQuirogaFacebook.map((v, k) => {
@@ -424,6 +431,7 @@ export default window.SocialWordcloudComponent = function () {
           }
           break
         case 'mas-ipsp':
+          this.backgroundColor = '#2c5282'
           switch (socialMedia) {
             case 'facebook':
               this.wordCloudGet(wordcloudId, MASFacebook.map((v, k) => {
@@ -462,6 +470,7 @@ export default window.SocialWordcloudComponent = function () {
           }
           break
         case 'comunidad-ciudadana':
+          this.backgroundColor = '#ed8936'
           switch (socialMedia) {
             case 'facebook':
               this.wordCloudGet(wordcloudId, CCFacebook.map((v, k) => {
@@ -492,6 +501,7 @@ export default window.SocialWordcloudComponent = function () {
           }
           break
         case 'creemos':
+          this.backgroundColor = '#d53f8c'
           switch (socialMedia) {
             case 'facebook':
               this.wordCloudGet(wordcloudId, CreemosFacebook.map((v, k) => {
@@ -514,6 +524,7 @@ export default window.SocialWordcloudComponent = function () {
           }
           break
         case 'fpv':
+          this.backgroundColor = '#2f855a'
           switch (socialMedia) {
             case 'facebook':
               this.wordCloudGet(wordcloudId, FPVFacebook.map((v, k) => {
@@ -536,6 +547,7 @@ export default window.SocialWordcloudComponent = function () {
           }
           break
         case 'pan-bol':
+          this.backgroundColor = '#e53e3e'
           switch (socialMedia) {
             case 'facebook':
               this.wordCloudGet(wordcloudId, PanBolFacebook.map((v, k) => {
@@ -558,6 +570,7 @@ export default window.SocialWordcloudComponent = function () {
           }
           break
         case 'adn':
+          this.backgroundColor = '#1a202c'
           switch (socialMedia) {
             case 'facebook':
               break
@@ -572,6 +585,7 @@ export default window.SocialWordcloudComponent = function () {
           }
           break
         case 'libre21':
+          this.backgroundColor = '#2f855a'
           switch (socialMedia) {
             case 'facebook':
               this.wordCloudGet(wordcloudId, Libre21Facebook.map((v, k) => {

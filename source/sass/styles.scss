@@ -11,8 +11,8 @@ This boilerplate is based in ITCSS and SMACSS
 // Generic
   // font-faces imports
   // TailwinCSS with tailwind.config.js
-// @import "fonts/heading-font";
-// @import "fonts/body-font";
+@import "fonts/heading-font";
+@import "fonts/body-font";
 @import "fonts/fontawesome";
 @import "generics/tailwind";
 
